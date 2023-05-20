@@ -1,0 +1,36 @@
+.hot_sale {
+    position:absolute;
+    margin: 10%;
+    left: 20%;
+}
+
+.sub_title{
+    font-size:2vw;
+}
+
+#rank_number{
+    font-size:2vw;
+}
+
+#product_img{
+    position: absolute;
+    
+}
+.sale_detail{
+    position:relative;
+    top: 0vw;
+    left: 15vw;
+    font-weight: 600;
+    font-size: 1.1vw;
+}
+
+#price_tag{
+    position: relative;
+    left: 30vw;
+}
+#sale_price{
+    color: red;
+}
+#ori_price{
+    text-decoration: line-through;
+}

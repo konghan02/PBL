@@ -1,0 +1,67 @@
+.myPageOrderedBack{
+    background: rgba(192, 192, 192, 0.12);
+    border: 1px solid #F1F1F1;
+    border-radius: 17px;
+    margin-left: 20%;
+    margin-top: 2%;
+    width:75%;
+    height:75%;
+}
+
+#myPageOrdered h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    margin-left: 20%;
+}
+
+.orderDate{
+    margin-left: 2%;
+    margin-top:3%;
+    font-size: 1.2rem;
+}
+
+.orderList, .orderList2, .orderList3{
+    background: rgba(192, 192, 192, 0.12);
+    border: 1px solid #F1F1F1;
+    border-radius: 17px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 0px;
+    margin-bottom: 3%;
+}
+
+
+.orderImg{
+    width:13%;
+    margin-left:3%;
+    display: inline-block;
+}
+
+#orderReturn, #deliTrack{
+    box-sizing: border-box;
+    width:9%;
+
+    border-radius: 12px;
+    font-weight: 500;
+    font-size:1rem;
+
+    position: absolute;
+    right: 10%;
+}
+
+#deliTrack{
+    margin-top:4%;
+}
+
+.pagination{
+    justify-content:center;
+  }
+
+.topScribe, .underScribe{
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 3%; 
+    width:150%;
+}

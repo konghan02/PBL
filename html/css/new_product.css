@@ -1,0 +1,48 @@
+.popular {
+    position: absolute;
+    margin: 10%;
+    left: 17%;
+}
+
+.pop_coffee{
+    font-size: 2vw;
+}
+
+.pop_coffee_content{
+    position: absolute;
+    display: flex;
+    padding-left : 10%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left: solid;
+    border-right: solid;
+    border-color: black;
+    font-size: 1w;
+    height: 17vw;
+    width: 50vw;
+}
+
+.pop_tool{
+    position: absolute;
+    top: 22vw;
+    font-size: 2vw;
+}
+
+.pop_tool_content{
+    position: absolute;
+    display: flex;
+    padding-left : 10%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left: solid;
+    border-right: solid;
+    border-color: black;
+    top: 25vw;
+    font-size: 1vw;
+    height: 17vw;
+    width: 50vw;
+}

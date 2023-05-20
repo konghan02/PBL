@@ -1,0 +1,27 @@
+.tool_checkbox_page {
+    position: relative;
+    align-items: center;
+    font-size: 13pt;
+    margin: 10%;
+    border-top: solid 2px burlywood;
+}
+
+.category {
+    position: relative;
+    text-align: center;
+    font-size: 1.5vw;
+    background: lightgray;
+    width: 10vw;
+}
+
+
+.nav1 ul li{
+    display: inline-block;
+    margin: 0 3vw;
+}
+
+.nav1 ul li a{
+    text-decoration: none;
+    margin-left: 0.5vw;
+    color: black;
+}

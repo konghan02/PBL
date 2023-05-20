@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bulletin.css">
+    <script src="https://kit.fontawesome.com/fad56724bb.js" crossorigin="anonymous"></script>
+
+      <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.21.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-performance-compat.js"></script>
+  <!-- 
+    initialize the SDK after all desired features are loaded, set useEmulator to false
+    to avoid connecting the SDK to running emulators.
+  -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <!--로고-->
+            <img src="../img/logo_2.jpg" class="logo_img">
+        </div>
+        <span class="title">
+            Cafe인
+        </span>
+        
+        <span class="nav1">
+            <ul>
+                <li><a href="coffee.html" style="font-size: 2.2vw;">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </span>
+
+        <div class="dropdown">
+            <button type="button" class="dropdown_btn" id="img_btn"><img src="../img/coffeebean.png"></button>
+            <div class="dropdown_submenu">
+                <div class="submenu_title">
+                    <b>My CafeIn</b>
+                    <a></a>
+                </div>
+                <div class="submenu_shopping">
+                    <a href="#">장바구니</a>
+                </div>
+                <div class="submenu_interest">
+                    <a href="#"><b>관심 상품</b></a>
+                    <a href="#">찜한 상품</a>
+                    <a href="#">최근 본 상품</a>
+                </div>
+                <b href="#">주문 목록</b>
+                <div class="submenu_review">
+                    <a href="#"><b>리뷰 관리</b></a>
+                    <a href="#">작성 가능한 리뷰</a>
+                    <a href="#">내가 작성한 리뷰</a>
+                </div>
+                <a href="#"><b>쿠폰 관리</b></a>
+                <a href="#"><b>계정 관리</b></a>
+            </div>
+        </div>
+        <div class="guest">
+            guest1 님
+        </div>
+    </div>
+    
+    <div class = "shop_page">
+        <div class="nav2">
+            <ul>
+                <li><a href="coffee.html">원두</a></li>
+                <li><a href="tool.html">도구</a></li>
+                <li><a href="new_product.html">신상</a></li>
+                <li><a href="sale.html">세일</a></li>
+                <li><a href="event.html">기획전</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input name="searching" type="search" class="input" placeholder="검색어를 입력하세요">
+            <button type="button" class="search_button" id="search_button" style='cursor:pointer'>
+                <i class="fa-solid fa-magnifying-glass fa-3x"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="bulletin">
+        <span class="b_title">게시글 작성</span>
+        <br>
+        <br>
+        <form action="submit-product" method="post" id = postForm>
+            <label for="title">제목:</label>
+            <input type="text" id="title" name="title" required><br><br>
+            
+            <div class="coffee">
+                <label for="tags">원두 혼합 유무 :</label>
+
+                <input type="checkbox" id="tag1" name="tags[]" value="True">
+                <label for="tag1">블렌딩</label>
+                
+                <input type="checkbox" id="tag2" name="tags[]" value="False">
+                <label for="tag2">싱글오리진</label>
+            </div>
+            <br>
+
+            <div class="taste">
+                <label for="tags">커피 맛 :</label>
+
+                <input type="checkbox" id="tastetag1" name="tags[]" value="계피">
+                <label for="tag1">계피</label>
+                <input type="checkbox" id="tastetag2" name="tags[]" value="바닐라">
+                <label for="tag2">바닐라</label>
+                <input type="checkbox" id="tastetag3" name="tags[]" value="브렛퍼스트 블렌드">
+                <label for="tag1">브렛퍼스트 블렌드</label>
+                <input type="checkbox" id="tastetag4" name="tags[]" value="블루베리">
+                <label for="tag2">블루베리</label>
+                <input type="checkbox" id="tastetag5" name="tags[]" value="아마레토">
+                <label for="tag1">아마레토</label><br>
+                <input type="checkbox" id="tastetag6" name="tags[]" value="아이리시 크림">
+                <label for="tag2">아이리시 크림</label>
+                <input type="checkbox" id="tastetag7" name="tags[]" value="초콜렛 라즈베리">
+                <label for="tag1">초콜렛 라즈베리</label>
+                <input type="checkbox" id="tastetag8" name="tags[]" value="캐러멜">
+                <label for="tag2">캐러멜</label>
+                <input type="checkbox" id="tastetag9" name="tags[]" value="펌킨 스파이스">
+                <label for="tag1">펌킨 스파이스</label>
+                <input type="checkbox" id="tastetag10" name="tags[]" value="헤이즐넛">
+                <label for="tag2">헤이즐넛</label>
+                <input type="checkbox" id="tastetag11" name="tags[]" value="Others">
+                <label for="tag2">기타</label>
+            </div>
+            <br>
+
+            <div class="roasting">
+                <label for="tags">분쇄 타입 :</label>
+
+                <input type="checkbox" id="typetag1" name="tags[]" value="생두">
+                <label for="tag1">생두</label>
+                <input type="checkbox" id="typetag2" name="tags[]" value="원두">
+                <label for="tag2">원두</label>
+                <input type="checkbox" id="typetag3" name="tags[]" value="분쇄커피">
+                <label for="tag1">분쇄커피</label>
+            </div>
+            <br>
+
+            <div class="price">
+                <label for="tags">가격(원) :</label>
+                <input type="text2" id="price" name="title" required><br>
+            </div>
+            <br>
+            
+            <div class="caffein">
+                <label for="tags">카페인 유무 :</label>
+
+                <input type="checkbox" id="caffeintag1" name="tags[]" value="True">
+                <label for="tag1">카페인</label>
+                <input type="checkbox" id="caffeintag2" name="tags[]" value="False">
+                <label for="tag2">디카페인</label>
+            </div>
+            <br>
+
+            <div class="roasting_level">
+                <label for="tags">로스팅 단계 :</label>
+
+                <input type="checkbox" id="roastingtag1" name="tags[]" value="Light">
+                <label for="tag1">라이트</label>
+                <input type="checkbox" id="roastingtag2" name="tags[]" value="Medium">
+                <label for="tag2">미디엄</label>
+                <input type="checkbox" id="roastingtag3" name="tags[]" value="Dark">
+                <label for="tag2">다크</label>
+            </div>
+            <br>
+
+            <div class="equal">
+                <label for="tags">공정무역여부 :</label>
+
+                <input type="checkbox" id="equaltag1" name="tags[]" value="True">
+                <label for="tag1">공정무역 O</label>
+                <input type="checkbox" id="equaltag2" name="tags[]" value="False">
+                <label for="tag2">공정무역 X</label>
+            </div>
+            <br>
+
+            <div class="level">
+                <label for="tags">등급 :</label>
+
+                <input type="checkbox" id="leveltag1" name="tags[]" value="aa">
+                <label for="tag1">AA</label>
+                <input type="checkbox" id="leveltag2" name="tags[]" value="g1">
+                <label for="tag2">G1</label>
+                <input type="checkbox" id="leveltag3" name="tags[]" value="g2">
+                <label for="tag1">G2</label>
+                <input type="checkbox" id="leveltag4" name="tags[]" value="g3">
+                <label for="tag2">G3</label>
+                <input type="checkbox" id="leveltag5" name="tags[]" value="g4">
+                <label for="tag1">G4</label><br>
+                <input type="checkbox" id="leveltag6" name="tags[]" value="ny2">
+                <label for="tag2">NY2</label>
+                <input type="checkbox" id="leveltag7" name="tags[]" value="p8">
+                <label for="tag1">P8</label>
+                <input type="checkbox" id="leveltag8" name="tags[]" value="shb">
+                <label for="tag2">SHB</label>
+                <input type="checkbox" id="leveltag9" name="tags[]" value="shg">
+                <label for="tag2">SHG</label>
+                <input type="checkbox" id="leveltag10" name="tags[]" value="suprimo">
+                <label for="tag2">수프리모</label>
+                <input type="checkbox" id="leveltag11" name="tags[]" value="others">
+                <label for="tag2">기타</label>
+            </div>
+            <br>
+            
+            <label for="content">내용(파일로 첨부 가능):</label>
+            <input type="file" name="photo" id = fileInput accept="image/*">
+            <br>
+            <br>
+
+            <input type="button" id = submitBtn value="게시글 작성" onclick="">
+        </form>
+    </div>
+
+    <script>
+        document.querySelectorAll('.coffee input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.coffee input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+          
+          document.querySelectorAll('.taste input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.taste input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+          
+          document.querySelectorAll('.roasting input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.roasting input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+          
+          document.querySelectorAll('.caffein input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.caffein input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+          
+          document.querySelectorAll('.roasting_level input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.roasting_level input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+          
+          document.querySelectorAll('.equal input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.equal input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+
+          document.querySelectorAll('.level input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                document.querySelectorAll('.level input[type="checkbox"]').forEach(function(otherCheckbox) {
+                  if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                  }
+                });
+              }
+            });
+          });
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA-cwXgyniJWjQ5JU75V3cgf4_408XwCfo",
+          authDomain: "cafein-d4561.firebaseapp.com",
+          databaseURL: "https://cafein-d4561-default-rtdb.firebaseio.com",
+          projectId: "cafein-d4561",
+          storageBucket: "cafein-d4561.appspot.com",
+          messagingSenderId: "680553235210",
+          appId: "1:680553235210:web:5bccea0d7bf6d25e93f0f3"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+          // Submit 버튼 클릭 이벤트 처리
+          var submitBtn = document.getElementById('submitBtn');
+
+          submitBtn.addEventListener('click', function() {
+            //이미지 처리
+
+            var fileInput = document.getElementById('fileInput');
+        var file = fileInput.files[0];
+
+        if (!file) {
+          console.error('파일이 선택되지 않았습니다.');
+          return;
+        }
+
+
+
+            // 선택된 체크박스 값 추출
+            var coffeecheckboxes = document.querySelectorAll('.coffee input[type="checkbox"]');
+            var tastecheckboxes = document.querySelectorAll('.taste input[type="checkbox"]');
+            var roastingcheckboxes = document.querySelectorAll('.roasting input[type="checkbox"]');
+            var caffeincheckboxes = document.querySelectorAll('.caffein input[type="checkbox"]');
+            var roastinglevelcheckboxes = document.querySelectorAll('.roasting_level input[type="checkbox"]');
+            var equalcheckboxes = document.querySelectorAll('.equal input[type="checkbox"]');
+            var levelcheckboxes = document.querySelectorAll('.level input[type="checkbox"]');
+
+            function getSelectedValues(checkboxes) {
+              var selectedValues = [];
+              for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                  selectedValues.push(checkboxes[i].value);
+                }
+              }
+              return selectedValues;
+            }
+
+            var coffeeSelectedValues = getSelectedValues(coffeecheckboxes);
+            var tasteSelectedValues = getSelectedValues(tastecheckboxes);
+            var roastingSelectedVaules = getSelectedValues(roastingcheckboxes);
+            var caffeinSelectedVaules = getSelectedValues(caffeincheckboxes);
+            var roastinglevelSelectedVaules = getSelectedValues(roastinglevelcheckboxes);
+            var equalSelectedVaules = getSelectedValues(equalcheckboxes);
+            var levelSelectedVaules = getSelectedValues(levelcheckboxes);
+            var title = document.getElementById('title').value;
+            var price = document.getElementById('price').value;
+            
+
+
+
+
+
+            // Firebase Storage에 이미지 업로드
+  var storageRef = firebase.storage().ref();
+  var imagesRef = storageRef.child('productimages/' + file.name);
+  imagesRef.put(file)
+    .then(function(snapshot) {
+      console.log('이미지 업로드 완료');
+
+      // 업로드한 이미지의 다운로드 URL 가져오기
+      imagesRef.getDownloadURL()
+        .then(function(url) {
+          console.log('이미지 URL:', url);
+          firebase.firestore().collection('product').doc(title).set({
+            title: title,
+            coffee:Boolean(coffeeSelectedValues),
+            price: Number(price),
+            roasting : roastingSelectedVaules.join(','),
+            taste: tasteSelectedValues.join(','),
+            caffein : Boolean(caffeinSelectedVaules),
+            roastinglevel : roastinglevelSelectedVaules.join(','),
+            equal : Boolean(equalSelectedVaules),
+            level : levelSelectedVaules.join(','),
+            imageurl : url
+          })
+          .then(function(docRef) {
+            console.log('문서가 성공적으로 추가되었습니다. 문서 ID:'+ title);
+            // 추가 작업 완료 후 필요한 동작 수행
+          })
+          .catch(function(error) {
+            console.error('문서 추가 중 오류 발생:' + error);
+          });
+        });
+          // TODO: URL을 활용하여 추가 작업 수행
+        })
+        .catch(function(error) {
+          console.error('이미지 URL 가져오기 오류:', error);
+        });
+    })
+    .catch(function(error) {
+      console.error('이미지 업로드 오류:', error);
+    });
+    </script>
+      
+</body>
+</html>
+
+
+<!-- // 이미지 등록 및 필드에 저장하는 함수 예시
+function uploadImageAndSaveData(imageFile, productId) {
+  // 이미지 파일을 임의의 이름으로 저장
+  const fileName = `${uuidv4()}.jpg`;
+  const storageRef = firebase.storage().ref(`images/${fileName}`);
+  const uploadTask = storageRef.put(imageFile);
+
+  // 업로드 완료 후 이미지 파일 경로를 필드에 저장
+  uploadTask.then(() => {
+    const imageUrl = `images/${fileName}`;
+
+    // 상품 컬렉션에서 해당 상품 문서의 필드를 업데이트
+    firebase.firestore().collection('products').doc(productId).update({
+      image: imageUrl
+    });
+  });
+}
+
+// 이미지 등록 및 필드에 저장하는 예시 호출
+const imageFile = /* 이미지 파일 */;
+const productId = /* 상품 문서의 ID */;
+uploadImageAndSaveData(imageFile, productId); -->

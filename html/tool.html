@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <script src="https://kit.fontawesome.com/fad56724bb.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.21.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-performance-compat.js"></script>
+  <!-- 
+    initialize the SDK after all desired features are loaded, set useEmulator to false
+    to avoid connecting the SDK to running emulators.
+  -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <!--로고-->
+            <img src="../img/logo_2.jpg" class="logo_img">
+        </div>
+        <span class="title">
+            Cafe인
+        </span>
+        
+        <span class="nav1">
+            <ul>
+                <li><a href="coffee.html" style="font-size:2.2vw;">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </span>
+
+        <div class="dropdown">
+            <button type="button" class="dropdown_btn" id="img_btn"><img src="../img/coffeebean.png"></button>
+            <div class="dropdown_submenu">
+                <div class="submenu_title">
+                    <b>My CafeIn</b>
+                    <a></a>
+                </div>
+                <div class="submenu_shopping">
+                    <a href="#">장바구니</a>
+                </div>
+                <div class="submenu_interest">
+                    <a href="#"><b>관심 상품</b></a>
+                    <a href="#">찜한 상품</a>
+                    <a href="#">최근 본 상품</a>
+                </div>
+                <b href="#">주문 목록</b>
+                <div class="submenu_review">
+                    <a href="#"><b>리뷰 관리</b></a>
+                    <a href="#">작성 가능한 리뷰</a>
+                    <a href="#">내가 작성한 리뷰</a>
+                </div>
+                <a href="#"><b>쿠폰 관리</b></a>
+                <a href="#"><b>계정 관리</b></a>
+            </div>
+        </div>
+        <div class="guest">
+            guest1 님
+        </div>
+    </div>
+    <div class = "shop_page">
+        <div class="nav2">
+            <ul>
+                <li><a href="coffee.html">원두</a></li>
+                <li><a href="tool.html" style = "color : burlywood">도구</a></li>
+                <li><a href="new_product.html">신상</a></li>
+                <li><a href="sale.html">세일</a></li>
+                <li><a href="event.html">기획전</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input name="searching" type="search" class="input" placeholder="검색어를 입력하세요">
+            <button type="button" class="search_button" id="search_button" style='cursor:pointer'>
+                <i class="fa-solid fa-magnifying-glass fa-3x"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="tool_checkbox_page">
+        <div class="category">
+            카테고리
+        </div>
+        <div class="tool_machine">
+            <ul class="ul_first_tool">
+                <li><a href="#">커피머신</a></li>
+                <li><a href="#">그라인더</a></li>
+                <li><a href="#">악세사리</a></li>
+                <li><a href="#">드립커피</a></li>
+            </ul>
+        </div>
+
+        <div class="coffee_machine" style="display: none;">
+            <ul class="ul_coffee_machine">
+                <li><a href="#">에스프레소 머신</a></li>
+                <li><a href="#">캡슐커피 머신</a></li>
+                <li><a href="#">밀크포머</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <ul id="productList" class="product-list"></ul>
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA-cwXgyniJWjQ5JU75V3cgf4_408XwCfo",
+          authDomain: "cafein-d4561.firebaseapp.com",
+          databaseURL: "https://cafein-d4561-default-rtdb.firebaseio.com",
+          projectId: "cafein-d4561",
+          storageBucket: "cafein-d4561.appspot.com",
+          messagingSenderId: "680553235210",
+          appId: "1:680553235210:web:5bccea0d7bf6d25e93f0f3"
+        };
+      
+        // Initialize Firebase
+        //const app = initializeApp(firebaseConfig);
+
+        //const db = firebase.firestore();
+
+        // 'product' 컬렉션의 데이터를 가져오기
+        //db.collection('customer').get().then((querySnapshot) => {
+        //querySnapshot.forEach((doc) => {
+            //console.log(doc.id, "=>", doc.data());
+            // doc.data()를 사용하여 데이터 처리
+        //});
+        //}).catch((error) => {
+        //console.error("Error getting documents: ", error);
+        //});
+        
+        const db = firebase.firestore();
+const searchInput = document.querySelector('.input');
+const productContainer = document.querySelector('.product-list');
+const searchButton = document.getElementById('search_button');
+
+searchButton.addEventListener('click', () => {
+  searchProducts();
+});
+
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    searchProducts();
+  }
+});
+
+function searchProducts() {
+  const searchTerm = searchInput.value.trim();
+
+  // 이전 검색 결과 제거
+  clearSearchResults();
+
+  if (searchTerm === '') {
+    // 검색어가 비어있을 경우 전체 결과 표시
+    showAllResults();
+  } else {
+    // 검색어를 포함하는 데이터 필터링
+    db.collection('product')
+      .where('isbean', '==', false)
+      .where('title', '>=', searchTerm)
+      .where('title', '<=', searchTerm + '\uf8ff')
+      .get()
+      .then((querySnapshot) => {
+        const filteredResults = [];
+        querySnapshot.forEach((doc) => {
+          const product = doc.data();
+          filteredResults.push(product);
+        });
+
+        displaySearchResults(filteredResults);
+      })
+      .catch((error) => {
+        console.error('데이터 가져오기 오류:', error);
+      });
+  }
+}
+
+function clearSearchResults() {
+  // 이전 검색 결과 제거
+  while (productContainer.firstChild) {
+    productContainer.removeChild(productContainer.firstChild);
+  }
+}
+
+function displaySearchResults(results) {
+  // 검색 결과 표시
+  results.forEach((product) => {
+    // 상품 타이틀에 해당하는 HTML 생성 및 출력
+    const titleItem = document.createElement('h3');
+    titleItem.textContent = product.title;
+    productContainer.appendChild(titleItem);
+
+    // 이미지 URL 확인 및 이미지 엘리먼트 생성
+    if (product.imageurl) {
+      const img = document.createElement('img');
+      img.src = product.imageurl;
+      img.alt = 'Product Image';
+      img.style.width = '10%';
+      img.style.height = 'auto';
+      productContainer.appendChild(img);
+    }
+
+    // 다른 필드들을 표시하는 엘리먼트 생성
+    const listItem = document.createElement('li');
+    listItem.classList.add('product-item');
+    listItem.innerHTML = `
+      <p>Price: ${product.price}</p>
+      <p>Taste: ${product.taste}</p>
+      <p>Caffein: ${product.caffein}</p>
+      <p>Roasting Level: ${product.roastinglevel}</p>
+      <p>Equal: ${product.equal}</p>
+      <p>Level: ${product.level}</p>
+    `;
+    productContainer.appendChild(listItem);
+  });
+}
+
+function showAllResults() {
+  // 모든 결과 표시
+  db.collection('product')
+    .where('isbean', '==', false)
+    .get()
+    .then((querySnapshot) => {
+      const allResults = [];
+      querySnapshot.forEach((doc) => {
+        const product = doc.data();
+        allResults.push(product);
+      });
+
+      displaySearchResults(allResults);
+    })
+    .catch((error) => {
+      console.error('데이터 가져오기 오류:', error);
+    });
+}
+
+// 페이지 로드 시 모든 결과 표시
+showAllResults();
+
+    </script>
+
+      <style>
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .product-item {
+            margin: 0 auto 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            text-align: center;
+            width: 80%;
+          }
+            
+      </style>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.body_content {
+    position: relative;
+    align-items: center;
+    font-size: 12pt;
+    padding: 10% 20%;
+    top : 1vw;
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 14px;
+    height: 14px;
+    border: 2px solid black;
+}
+
+.coffee_mix_choice {
+    position: relative;
+    box-sizing: border-box;
+    width: 10vw;
+    top: -1vw;
+    left: 10vw;
+    padding: 0.3vw;
+    background-color: whitesmoke;
+    text-align: center;
+    border-right: solid 1px black;
+}
+
+.coffee_mix_checkbox {
+    position: relative;
+    left: 21vw;
+    top: -2.5vw;
+    background-color: rgba(211, 204, 204, 0.603);
+    width: 32vw;
+}
+
+.more_button {
+    position: relative;
+    width:5vw;
+    left: 5vw;
+    top: -1vw;
+    font-size: 0.7vw;
+    font-weight: 700;
+}
+
+.more_coffee {
+    position: absolute;
+    z-index: 1;
+    display: bloxk;
+    background-color: lightgray;
+}
+
+.coffee_roasting{
+    background: white;
+}
+.coffee_fair_trade{
+    background: white;
+}
+.coffee_level {
+    background: white;
+}
+
+  

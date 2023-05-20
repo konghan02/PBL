@@ -1,0 +1,36 @@
+.bulletin{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-10%);
+    width : 50vw;
+    border: 0.2vw solid burlywood;
+    padding: 3vw;
+    font-size: 1vw;
+}
+label[for=title]{
+    font-weight: 600;
+}
+
+label[for=tags]{
+    font-weight: 600;
+}
+
+.b_title{
+    font-size: 2vw;
+    font-weight: 600;
+    background-color: rgba(255, 192, 203, 0.425);
+}
+
+input[type=text1]{
+    width:25vw;
+    height:2vw;
+    font-size: 1vw;
+    border: 0.02vw solid black;
+}
+
+input[type=text2]{
+    width:5vw;
+    height:1vw;
+    border: 0.02vw solid black;
+}

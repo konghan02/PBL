@@ -1,0 +1,195 @@
+/* 메인 페이지 css */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+
+.header {
+    position: relative;
+    width: auto;
+    height: 2.2vw;
+    padding: 70px;
+    border-color: white;
+    border-style: solid;
+    border-bottom-color:burlywood;
+}
+
+
+.logo {
+    position: absolute;
+    width: 10vw;
+    top: -2vw;
+    left: 6vw;
+    transform: rotate(-15deg);
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.title {
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 600;
+    left: 12vw;
+    top: 3vw;
+}
+
+
+.nav1 {
+    position: absolute;
+    right: 18vw;
+    top: 3vw;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2vw;
+    font-family: abster;
+    font-weight: 520;
+}
+
+.nav1 ul li{
+    display: inline-block;
+    margin: 0 3vw;
+}
+
+.nav1 ul li a{
+    text-decoration: none;
+    margin-left: 0.5vw;
+    color: black;
+}
+
+.dropdown_btn {
+    position: absolute;
+    width: 5vw;
+    right: 10vw;
+    top: 4vw;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown_submenu{
+    width:10vw;
+    position: absolute;
+    right: 7.5vw;
+    top: 8vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
+    display: none;
+    z-index:1;
+    background:rgba(247, 247, 247, 1);
+}
+
+.dropdown_submenu a {
+    text-decoration: none;
+    display: block;
+    padding: 0.3vw;
+    text-align: center;
+    color: gray;
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+.dropdown_submenu b {
+    text-decoration: none;
+    display: block;
+    padding: 0.3vw;
+    text-align: center;
+    color: black;
+    font-size: 1.1vw;
+    font-weight: 500;
+    border-top: 2px solid gray;
+}
+
+.dropdown:hover .dropdown_submenu {
+    display: block;
+}
+
+.container{
+    position: relative;
+}
+
+
+button.mbti_btn {
+    position: absolute;
+    top: 29vw;
+    left: 10vw;
+    width: 20vw;
+    height:5vw;
+    font-size: 2vw;
+    background-color: black;
+    color:white; 
+}
+
+.guest {
+    position: absolute;
+    top:6vw;
+    right: 5vw;
+    font-size: 1vw;
+}
+
+/*폰트 추가 후 font-weight 지정
+.submenu_shopping {
+}
+*/
+
+
+/* Shop 페이지 css */
+
+.shop_page {
+    position: relative;
+    width: auto;
+    padding: 1vw;
+}
+.shop_page .nav2{
+    position: absolute;
+    top: 120%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-between;
+    font-family: abster;
+}
+
+.shop_page .nav2 ul li{
+    display: inline-block;
+    margin:0 2vw;
+    text-align: center;
+}
+
+.nav2 ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 15pt;
+    font-weight: 600;
+}
+
+.search {
+    position: absolute;
+    top: 350%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+input[type=search] {
+    width:600px;
+    height: 55px;
+    font-size: 20px;
+    border-radius: 60px;
+    border: 2px solid burlywood;
+    text-align: center;
+}
+
+
+.search_button {
+    position: absolute;
+    left: 530px;
+    top: 12px;
+    background-color: white;
+    border: none;
+}

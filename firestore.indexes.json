@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "nweets",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "creatorID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

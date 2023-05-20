@@ -1,0 +1,190 @@
+#myPageCart{
+    margin-top: 4%;
+    margin-left: 20%;
+    margin-bottom: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    
+    width:75%;
+    height: 90%;
+    display: grid;
+
+    box-sizing: border-box;
+    background: rgba(192, 192, 192, 0.12);
+    border: 1px solid #F1F1F1;
+    border-radius: 17px;
+}
+
+#allDelete{
+    box-sizing: border-box;
+    text-align: center;
+    font-size:1em;
+
+    background: #545454; 
+    border: 1px solid #F1F1F1;
+    border-radius: 14px; color:white;
+
+    padding-top: 4px;
+    padding-bottom: 3px;
+    margin: 5px;
+
+    justify-self: end;
+    position: relative;
+}
+
+.cartHeader>.form-check
+{
+    width: 60%;
+}
+
+#chkAll{
+    margin-right: 5%;
+}
+
+.cartHeader{
+    list-style: none;
+    margin-bottom: 0px;
+    display: grid;
+    grid-template-columns: 4fr 5fr 3fr 4fr 2fr;
+}
+
+.cartHeader>li{
+    float:left;
+    font-size: 1em;
+}
+
+#imgConts{
+    display: inline-grid;
+    height: 60%;
+    width: 60%;
+  }
+
+#idConts{
+    display: inline-flex;
+    margin-top: 5%;
+    font-size: 1em;
+    padding-right: 20%;
+  }
+
+.cartList{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 2fr 2fr;
+}
+
+.cartList>li{
+    float:left;
+    display: inline-grid;
+    align-items: center;
+}
+
+.quantityConts {
+    border-radius: 0px;
+    border:black solid 2px;
+    width: 30%;
+    height: 70%;
+
+    font-size: 1.2em;
+    text-align: center;
+
+    display: grid   ;
+    position: relative;
+    left: 18%;
+}
+
+.myPageCart>.cartList>input{
+    border: black solid 1px;
+}
+
+.orderConts{
+    color: white;
+    background: #0071E3;
+    border: 1px solid #F1F1F1;
+    border-radius: 14px;
+    box-sizing: border-box;
+
+    font-size: 1rem;
+    width:60%;
+    height:50%;
+    margin-left: 20%;
+}
+
+.editConts{
+    border-radius: 0px;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 0.8em;
+    
+    height: 23%;
+    margin-left: 18%;
+    width: 30%;
+    display: grid;
+    margin-top:5%;
+    
+}
+
+.amountConts{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 18%;
+}
+
+table.cartCalc{
+    text-align: center;
+    background: rgba(192, 192, 192, 0.12);
+
+    
+    margin-left: 20%;
+    margin-right: auto;
+    font-size: 1rem;
+
+    width:75%;
+    margin-bottom: 3%;
+    
+}
+
+table.cartCalc>tbody{ /*표 내 구분선 margin*/
+
+    border-left-width:10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-color:transparent;
+
+}
+
+table.cartCalc>tbody>tr>td{
+    margin-bottom: 3%;
+    border-bottom: 1px solid #848484;
+    border-right: 1px solid #848484;
+}
+
+table.cartCalc>tbody>tr>th{
+    border-right: 1px solid #848484;
+    height:70%;
+}
+
+#myPageCart>ul{
+    margin-bottom: 0px;
+}
+
+#myPageCart>.goodsHR{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#getOrder{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    background: #0071E3;
+    border: 1px solid #F1F1F1;
+    border-radius: 14px;
+}
+
+#getShopping{
+    background: #8D5124;
+    border: 1px solid #F1F1F1;
+    border-radius: 14px;
+}

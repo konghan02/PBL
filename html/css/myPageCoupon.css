@@ -1,0 +1,69 @@
+#myPageCoupon{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    margin-left: 20%;
+    width:60%;
+}
+
+#registerCoupon{
+    background: #8D5124;
+    border: 1px solid #F1F1F1;
+    border-radius: 14px;
+    font-size: 1rem;
+  
+    position: absolute;
+    right: 10%;
+    width:10%;
+  }
+
+.myPageCoupon2{
+    margin-left: 20%;
+    background: rgba(192, 192, 192, 0.12);
+    border: 1px solid #F1F1F1;
+    border-radius: 17px;
+
+    margin-top: 3%;
+    width:75%;
+}
+
+#imgConts{
+    height: 50%;
+    width: 10%;
+    margin:1% 5%;
+    vertical-align: top;
+  }
+
+#dcAmount{
+    font-size:1.5em;
+    font-weight: 600;
+}
+
+#couponExpire{
+    background: #51A9DB;
+    border: 1px solid #F1F1F1;
+    border-radius: 14px;
+    font-size: 0.8em;
+    margin-bottom: 2%;
+}
+
+#cancleConts{
+    display: inline;
+    width: 5%;
+    padding:0px;
+    margin-left: 5%;
+    position: absolute;
+    right: 10%;
+  }
+
+#appliesConts{
+    text-decoration: none;
+    color: black;
+}
+
+.myPageCouponText{
+    width:75%;
+    display: inline-block;
+    list-style: none;
+}

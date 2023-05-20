@@ -1,0 +1,51 @@
+.title_plan {
+    position: relative;
+    top: 8vw;
+    height: 3.5vw;
+    width: 60vw;
+    margin: 0 auto;
+    padding: 3vw 0 3vw 0;
+    background-color: rgba(255, 192, 203, 0.425);
+    display: flex;
+    text-align: center;
+}
+
+.banner_title {
+    position: relative;
+    left: 20vw;
+    top: -2vw;
+    font-size: 2.5vw;
+}
+
+.title_content{
+    font-size: 1.2vw;
+    font-weight: 400;
+}
+
+.event_banner{
+    position: relative;
+}
+
+.weekly_special_banner{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 10vw;
+}
+
+.ongoing_title {
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-60%, 1500%);
+    box-sizing: border-box;
+    font-size: 1.7vw;
+}
+
+.ongoing_special_banner{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, 200%);
+}
+

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/coffee.css">
+    <script src="https://kit.fontawesome.com/fad56724bb.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.21.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-performance-compat.js"></script>
+  <!-- 
+    initialize the SDK after all desired features are loaded, set useEmulator to false
+    to avoid connecting the SDK to running emulators.
+  -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+<body>
+
+   
+
+
+    <div class="header">
+        <div class="logo">
+            <!--로고-->
+            <img src="../img/logo_2.jpg" class="logo_img">
+        </div>
+        <span class="title">
+            Cafe인
+        </span>
+        
+        <span class="nav1">
+            <ul>
+                <li><a href="coffee.html" style="font-size:2.2vw;">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </span>
+
+        <div class="dropdown">
+            <button type="button" class="dropdown_btn" id="img_btn"><img src="../img/coffeebean.png"></button>
+            <div class="dropdown_submenu">
+                <div class="submenu_title">
+                    <b>My CafeIn</b>
+                    <a></a>
+                </div>
+                <div class="submenu_shopping">
+                    <a href="#">장바구니</a>
+                </div>
+                <div class="submenu_interest">
+                    <a href="#"><b>관심 상품</b></a>
+                    <a href="#">찜한 상품</a>
+                    <a href="#">최근 본 상품</a>
+                </div>
+                <b href="#">주문 목록</b>
+                <div class="submenu_review">
+                    <a href="#"><b>리뷰 관리</b></a>
+                    <a href="#">작성 가능한 리뷰</a>
+                    <a href="#">내가 작성한 리뷰</a>
+                </div>
+                <a href="#"><b>쿠폰 관리</b></a>
+                <a href="#"><b>계정 관리</b></a>
+            </div>
+        </div>
+        <div class="guest">
+            guest1 님
+        </div>
+    </div>  
+    <div class = "shop_page">
+        <div class="nav2">
+            <ul>
+                <li><a href="coffee.html" style = "color : burlywood">원두</a></li>
+                <li><a href="tool.html">도구</a></li>
+                <li><a href="new_product.html">신상</a></li>
+                <li><a href="sale.html">세일</a></li>
+                <li><a href="event.html">기획전</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input name="searching" type="search" class="input" placeholder="검색어를 입력하세요">
+            <button type="button" class="search_button" id="search_button" style='cursor:pointer'>
+                <i class="fa-solid fa-magnifying-glass fa-3x"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="body_content">
+        <div class="coffee_mix">
+            <div class="coffee_mix_choice">
+                원두 혼합 유무
+            </div>
+            <div class="coffee_mix_checkbox">
+                 <label for="coffee_mix_label1"> <input name=coffeeMix type="checkbox" id="coffee_mix_label1" value="blend" />블렌딩  (2가지 이상의 원두를 혼합)</label>
+                 <label for="coffee_mix_label2"> <input name=coffeeMix type="checkbox" id="coffee_mix_label2" value="single" />싱글 오리진  (1가지 원두만 이용)</label>
+            </div>
+        </div>
+        <div class="coffee_taste">
+            <div class="coffee_mix_choice">
+                커피 맛(다중 선택 가능)
+            </div>
+            <div class="coffee_mix_checkbox">
+                <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="계피">계피</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="바닐라">바닐라</label>
+                <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="브렛퍼스트 블렌드">브렛퍼스트 블렌드</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="블루베리">블루베리</label>
+                <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="아마레토">아마레토</label>
+                <br>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="아이리시 크림">아이리시 크림</label>
+                <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="초콜렛 라즈베리">초콜렛 라즈베리</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="캐러멜">캐러멜</label>
+                <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="펌킨 스파이스">펌킨 스파이스</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="헤이즐넛">헤이즐넛</label>
+            </div>
+        </div>
+        <div class="coffee_grind">
+            <div class="coffee_mix_choice">분쇄 타입</div>
+            <div class="coffee_mix_checkbox">
+                <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="생두">생두</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="원두">원두</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="분쇄커피">분쇄커피</label>
+            </div>
+        </div>
+        <div class="coffee_price">
+            <div class="coffee_mix_choice">가격</div>
+            <div class="coffee_mix_checkbox">
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2">8천원 ~ 1만 2천원</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2">1만 2천원 ~ 2만원</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2">2만원 ~ 3만원</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2">3만원 ~</label>
+            </div>
+        </div>
+        <div class="coffee_caffein">
+            <div class="coffee_mix_choice">카페인 유무</div>
+            <div class="coffee_mix_checkbox">
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value=True>카페인</label>
+                <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value=False>디카페인</label>
+            </div>
+        </div>
+        <div class="more_button">
+            <button onclick="dp_menu()"  class="more_button" id="more_button" style='cursor:pointer'>
+                더보기 +
+            </button>
+        </div>
+        <div class="more_coffee" div style="display: none;" id="more_coffee">
+            <div class="coffee_roasting">
+                <div class="coffee_mix_choice">로스팅 단계</div>
+                <div class="coffee_mix_checkbox">
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="Light">라이트</label>
+                    <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="Medium">미디엄</label>
+                    <input type="checkbox" id="coffee_mix_label3"> <label for="coffee_mix_label3" value="Dark">다크</label>
+                </div>
+            </div>
+            <div class="coffee_fair_trade">
+                <div class="coffee_mix_choice">공정무역 여부</div>
+                <div class="coffee_mix_checkbox">
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="True">공정무역 O</label>
+                    <input type="checkbox" id="coffee_mix_label2"> <label for="coffee_mix_label2" value="False">공정무역 X</label>
+                </div>
+            </div>
+            <div class="coffee_level">
+                <div class="coffee_mix_choice">등급</div>
+                <div class="coffee_mix_checkbox">
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="AA">AA</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="G1">G1</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="G2">G2</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="G3">G3</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="G4">G4</label>
+                    <br>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="NY2">NY2</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="PB">PB</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="SHB">SHB</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="SHG">SHG</label>
+                    <input type="checkbox" id="coffee_mix_label1"> <label for="coffee_mix_label1" value="수프리모">수프리모</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul id="productList" class="product-list"></ul>
+
+    <script src="../js/main.js"></script>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA-cwXgyniJWjQ5JU75V3cgf4_408XwCfo",
+          authDomain: "cafein-d4561.firebaseapp.com",
+          databaseURL: "https://cafein-d4561-default-rtdb.firebaseio.com",
+          projectId: "cafein-d4561",
+          storageBucket: "cafein-d4561.appspot.com",
+          messagingSenderId: "680553235210",
+          appId: "1:680553235210:web:5bccea0d7bf6d25e93f0f3"
+        };
+      
+        const db = firebase.firestore();
+        const searchInput = document.querySelector('.input');
+
+
+        const productContainer = document.querySelector('.product-list');
+        const blendCheckbox = document.querySelector('input[value="blend"]');
+        const singleCheckbox = document.querySelector('input[value="single"]');
+        
+        searchInput.addEventListener('input', performSearch);
+        blendCheckbox.addEventListener('change', handleCheckboxChange);
+        singleCheckbox.addEventListener('change', handleCheckboxChange);
+        
+        
+
+        function performSearch() {
+          const searchTerm = searchInput.value.trim().toLowerCase();
+          const coffeeMixFilters = getSelectedCoffeeMixFilters();
+        
+          clearSearchResults();
+        
+          if (searchTerm === '') {
+            showAllResults();
+          } else {
+            db.collection('product').get()
+              .then((querySnapshot) => {
+                const searchResults = [];
+        
+                querySnapshot.forEach((doc) => {
+                  const product = doc.data();
+        
+                  if (product.title.toLowerCase().includes(searchTerm)) {
+                    searchResults.push(product);
+                  }
+                });
+        
+                const filteredResults = applyCheckboxFilters(searchResults, coffeeMixFilters);
+                displaySearchResults(filteredResults);
+              })
+              .catch((error) => {
+                console.error('Error fetching data:', error);
+              });
+          }
+        }
+        
+        function handleCheckboxChange() {
+          performSearch();
+        }
+
+        
+        
+        function getSelectedCoffeeMixFilters() {
+          const selectedFilters = [];
+        
+          if (blendCheckbox.checked) {
+            selectedFilters.push('blend');
+          }
+          if (singleCheckbox.checked) {
+            selectedFilters.push('single');
+          }
+        
+          return selectedFilters;
+        }
+
+        
+        function applyCheckboxFilters(results, filters) {
+          return results.filter((product) => {
+            if (
+                filters.includes('blend') && product.coffee === false ||
+                filters.includes('single') && product.coffee === true
+              ) {
+                return false;
+              }
+              return true;
+                filters.includes()
+          });
+        }
+        
+        function clearSearchResults() {
+          while (productContainer.firstChild) {
+            productContainer.removeChild(productContainer.firstChild);
+          }
+        }
+        
+        function showAllResults() {
+          db.collection('product').get()
+            .then((querySnapshot) => {
+              const allResults = [];
+        
+              querySnapshot.forEach((doc) => {
+                const product = doc.data();
+                allResults.push(product);
+              });
+        
+              const filteredResults = applyCheckboxFilters(allResults, getSelectedCoffeeMixFilters());
+              displaySearchResults(filteredResults);
+            })
+            .catch((error) => {
+              console.error('Error fetching data:', error);
+            });
+        }
+        
+        function displaySearchResults(results) {
+          results.forEach((product) => {
+            const titleItem = document.createElement('h3');
+            titleItem.textContent = product.title;
+            productContainer.appendChild(titleItem);
+        
+            if (product.imageurl) {
+              const img = document.createElement('img');
+              img.src = product.imageurl;
+              img.alt = 'Product Image';
+              img.style.width = '10%';
+              img.style.height = 'auto';
+              productContainer.appendChild(img);
+            }
+        
+            const listItem = document.createElement('li');
+            listItem.classList.add('product-item');
+            listItem.innerHTML = `
+              <p>Price: ${product.price}</p>
+              <p>Taste: ${product.taste}</p>
+              <p>Caffein: ${product.caffein}</p>
+              <p>Roasting Level: ${product.roastinglevel}</p>
+              <p>Equal: ${product.equal}</p>
+              <p>Level: ${product.level}</p>
+            `;
+            productContainer.appendChild(listItem);
+          });
+        }
+        
+        showAllResults();
+        
+      </script>
+
+      <style>
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .product-item {
+            margin: 0 auto 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            text-align: center;
+            width: 80%;
+          }
+            
+      </style>
+</body>
+</html>
+
+<!-- <button class="product-button" data-product-id="상품ID">상품</button> -->
+
+<!-- // 클릭 이벤트 핸들러
+function handleClick(event) {
+  const productId = event.target.dataset.productId;
+  increaseViewsAndSave(productId);
+}
+
+// Firestore에서 조회수를 증가시키고 저장하는 함수
+function increaseViewsAndSave(productId) {
+  const db = firebase.firestore();
+  const productRef = db.collection('product').doc(productId);
+
+  // 조회수 필드를 1씩 증가
+  productRef.update({
+    views: firebase.firestore.FieldValue.increment(1)
+  })
+    .then(() => {
+      console.log('조회수 증가 및 저장이 완료되었습니다.');
+    })
+    .catch((error) => {
+      console.error('조회수 증가 및 저장 중 오류가 발생했습니다:', error);
+    });
+}
+
+// 상품 버튼에 클릭 이벤트 리스너 등록
+const productButton = document.querySelector('.product-button');
+productButton.addEventListener('click', handleClick); -->

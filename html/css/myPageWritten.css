@@ -1,0 +1,40 @@
+#imgConts{
+    display: inline-block;
+    height: 50%;
+    width: 10%;
+    margin:1% 5%;
+  }
+
+#idConts{
+    display: inline-block;
+    width: 57%;
+}
+
+#modifyReview, #deleteReview{
+    background: #8D5124;
+    border: 1px solid #F1F1F1;
+    border-radius: 14px;
+
+    box-sizing: border-box;
+    width:9%;
+
+    border-radius: 12px;
+    font-weight: 500;
+    font-size:0.8rem;
+  }
+
+
+.myPageReview2{
+    margin-left: 20%;
+
+    background: rgba(192, 192, 192, 0.12);
+    border: 1px solid #F1F1F1;
+    border-radius: 17px;
+
+    margin-top: 3%;
+    width:75%;
+}
+
+.pagination{
+    justify-content:center;
+  }

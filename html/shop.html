@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/fad56724bb.js" crossorigin="anonymous"></script>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.21.0/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.21.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/9.21.0/firebase-performance-compat.js"></script>
+  <!-- 
+    initialize the SDK after all desired features are loaded, set useEmulator to false
+    to avoid connecting the SDK to running emulators.
+  -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <!--로고-->
+            <img src="../img/logo_2.jpg" class="logo_img">
+        </div>
+        <span class="title">
+            Cafe인
+        </span>
+        
+        <span class="nav1">
+            <ul>
+                <li><a href="coffee.html" style="font-size: 2.2vw;">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </span>
+
+        <div class="dropdown">
+            <button type="button" class="dropdown_btn" id="img_btn"><img src="../img/coffeebean.png"></button>
+            <div class="dropdown_submenu">
+                <div class="submenu_title">
+                    <b>My CafeIn</b>
+                    <a></a>
+                </div>
+                <div class="submenu_shopping">
+                    <a href="#">장바구니</a>
+                </div>
+                <div class="submenu_interest">
+                    <a href="#"><b>관심 상품</b></a>
+                    <a href="#">찜한 상품</a>
+                    <a href="#">최근 본 상품</a>
+                </div>
+                <b href="#">주문 목록</b>
+                <div class="submenu_review">
+                    <a href="#"><b>리뷰 관리</b></a>
+                    <a href="#">작성 가능한 리뷰</a>
+                    <a href="#">내가 작성한 리뷰</a>
+                </div>
+                <a href="#"><b>쿠폰 관리</b></a>
+                <a href="#"><b>계정 관리</b></a>
+            </div>
+        </div>
+        <div class="guest">
+            guest1 님
+        </div>
+    </div>
+    
+    <div class = "shop_page">
+        <div class="nav2">
+            <ul>
+                <li><a href="coffee.html">원두</a></li>
+                <li><a href="tool.html">도구</a></li>
+                <li><a href="new_product.html">신상</a></li>
+                <li><a href="sale.html">세일</a></li>
+                <li><a href="event.html">기획전</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input name="searching" type="search" class="input" placeholder="검색어를 입력하세요">
+            <button type="button" class="search_button" id="search_button" style='cursor:pointer'>
+                <i class="fa-solid fa-magnifying-glass fa-3x"></i>
+            </button>
+        </div>
+
+        <ul id="productList" class="product-list"></ul>
+
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyA-cwXgyniJWjQ5JU75V3cgf4_408XwCfo",
+              authDomain: "cafein-d4561.firebaseapp.com",
+              databaseURL: "https://cafein-d4561-default-rtdb.firebaseio.com",
+              projectId: "cafein-d4561",
+              storageBucket: "cafein-d4561.appspot.com",
+              messagingSenderId: "680553235210",
+              appId: "1:680553235210:web:5bccea0d7bf6d25e93f0f3"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+            const db = firebase.firestore();
+            const productRef = db.collection('product');
+
+            productRef.where('isbean', '==', false)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                console.log(doc.data());
+                // 여기에서 원하는 동작 수행
+                });
+            })
+            .catch((error) => {
+                console.log('Error getting documents: ', error);
+            });
+
+          </script>
+        
+
+    </div>
+</body>
+</html>
